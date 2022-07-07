@@ -10,7 +10,7 @@ function computerPlay() {
 }
 
 //const playerSelection = prompt('Input your selection');
-const playerSelection = 'papper';
+const playerSelection = 'rock';
 const computerSelection = computerPlay();
 
 function playRound(p, c) {
@@ -32,15 +32,22 @@ function playRound(p, c) {
    } else if (p === 'papper' && c === 'papper') {
       console.log(`Player choose:${p} And Computer choose:${c}`);
       return 'Tie';
-   } else if (p === 'rock' && c === 'papper') {
+   } else if (p === 'scissor' && c === 'papper') {
       console.log(`Player choose:${p} And Computer choose:${c}`);
-      return 'You Lose, Papper beats Rock';
-   } else if (p === 'rock' && c === 'scissor') {
+      return 'You Win, Scissor beats Papper';
+   } else if (p === 'scissor' && c === 'rock') {
       console.log(`Player choose:${p} And Computer choose:${c}`);
-      return 'You Win, Scissor beats Scissor';
-   } else if (p === 'rock' && c === 'rock') {
+      return 'You Lose, Rock beats Scissor';
+   } else if (p === 'scissor' && c === 'scissor') {
       console.log(`Player choose:${p} And Computer choose:${c}`);
       return 'Tie';
    }
 }
-console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+   for (let i = 0; i < 5; i++) {
+      console.log(playRound(playerSelection, computerSelection));
+   }
+}
+
+game();
