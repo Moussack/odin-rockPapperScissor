@@ -1,3 +1,4 @@
+// This function randomly determines computer's choice
 function computerPlay() {
    const comSelection = Math.floor(Math.random() * 3);
    if (comSelection === 0) {
@@ -9,10 +10,19 @@ function computerPlay() {
    }
 }
 
-//const playerSelection = prompt('Input your selection');
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
+// This function randomly determines player's choice
+function playerPlay() {
+   const playerSelection = Math.floor(Math.random() * 3);
+   if (playerSelection === 0) {
+      return 'rock';
+   } else if (playerSelection === 1) {
+      return 'papper';
+   } else {
+      return 'scissor';
+   }
+}
 
+// this function controls all Output scenario
 function playRound(p, c) {
    if (p === 'rock' && c === 'papper') {
       console.log(`Player choose:${p} And Computer choose:${c}`);
@@ -44,8 +54,11 @@ function playRound(p, c) {
    }
 }
 
+// This function is to start the game
 function game() {
    for (let i = 0; i < 5; i++) {
+      const computerSelection = computerPlay();
+      const playerSelection = playerPlay();
       console.log(playRound(playerSelection, computerSelection));
    }
 }
