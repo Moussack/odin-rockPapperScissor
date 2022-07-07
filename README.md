@@ -1,2 +1,2 @@
 # odin-rockPapperScissor
-Odin Rock Papper Scissor project
+Odin Project Rock Papper Scissor project
