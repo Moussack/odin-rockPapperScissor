@@ -71,13 +71,13 @@ function game() {
       const result = playRound(playerSelection, computerSelection);
 
       if (result.includes('Win')) {
-         console.log('WON!!! player got SCORE + 1 ');
+         console.log('WON!!! You got SCORE + 1 ');
          pScore = pScore + 1;
       } else if (result.includes('Lose')) {
          console.log('LOSE!!!computer got SCORE + 1');
          cScore = cScore + 1;
       } else {
-         console.log('TIE!!! you got Tie SCORE + 0');
+         console.log('TIE!!!');
          pScore = pScore + 0;
          cScore = cScore + 0;
       }
