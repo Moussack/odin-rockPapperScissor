@@ -10,7 +10,7 @@ function computerPlay() {
    }
 }
 
-// This function randomly determines player's choice
+// This function randomly determines player's choice (for testing purposes)
 function playerPlay() {
    const playerSelection = Math.floor(Math.random() * 3);
    if (playerSelection === 0) {
@@ -21,11 +21,6 @@ function playerPlay() {
       return 'scissor';
    }
 }
-
-// const computerSelection = computerPlay();
-// const playerSelection = playerPlay();
-
-// console.log(playRound(playerSelection, computerSelection));
 
 // this function controls all Output scenario
 function playRound(p, c) {
@@ -61,36 +56,41 @@ function playRound(p, c) {
 
 // This function is to start the game
 function game() {
-   let pScore = 0;
-   let cScore = 0;
+   // initializing score
+   let playerScore = 0;
+   let computerScore = 0;
 
    for (let i = 0; i < 5; i++) {
-      //const playerSelection = playerPlay();
+      /* const playerSelection = playerPlay(); // generate random player choice for testing purposes */
       const playerSelection = prompt('Choose rock, papper or scissor');
       const computerSelection = computerPlay();
       const result = playRound(playerSelection, computerSelection);
 
+      // if user enter empty word or click the cancel button in the prompt, the game ended by this code
       if (playerSelection === '' || playerSelection === null) {
          alert(`please insert a word`);
       }
 
+      // This code is to add score if there's a word win
       if (result.includes('Win')) {
          console.log('WON!!! You got SCORE + 1 ');
-         pScore = pScore + 1;
+         playerScore = playerScore + 1;
       } else if (result.includes('Lose')) {
          console.log('LOSE!!!computer got SCORE + 1');
-         cScore = cScore + 1;
+         computerScore = computerScore + 1;
       } else {
          console.log('TIE!!!');
-         pScore = pScore + 0;
-         cScore = cScore + 0;
+         playerScore = playerScore + 0;
+         computerScore = computerScore + 0;
       }
    }
 
-   console.log(`player score final ${pScore}`);
-   console.log(`computer score final ${cScore}`);
+   // log the final score to the console
+   console.log(`player score final ${playerScore}`);
+   console.log(`computer score final ${computerScore}`);
 }
 
+// start the game by calling the function
 game();
 
-// NEXT TO DO = calculate players and computer score if they won each round and use prompt method to gather user input
+// NEXT TO DO = implement case insensitive
