@@ -70,6 +70,10 @@ function game() {
       const computerSelection = computerPlay();
       const result = playRound(playerSelection, computerSelection);
 
+      if (playerSelection === '' || playerSelection === null) {
+         alert(`please insert a word`);
+      }
+
       if (result.includes('Win')) {
          console.log('WON!!! You got SCORE + 1 ');
          pScore = pScore + 1;
