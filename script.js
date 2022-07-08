@@ -64,3 +64,5 @@ function game() {
 }
 
 game();
+
+// NEXT TO DO = calculate players and computer score if they won each round and use prompt method to gather user input
