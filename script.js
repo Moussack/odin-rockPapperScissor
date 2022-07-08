@@ -65,9 +65,9 @@ function game() {
    let cScore = 0;
 
    for (let i = 0; i < 5; i++) {
+      //const playerSelection = playerPlay();
+      const playerSelection = prompt('Choose rock, papper or scissor');
       const computerSelection = computerPlay();
-      const playerSelection = playerPlay();
-      // console.log(playRound(playerSelection, computerSelection));
       const result = playRound(playerSelection, computerSelection);
 
       if (result.includes('Win')) {
