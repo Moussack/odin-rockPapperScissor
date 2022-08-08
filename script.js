@@ -55,132 +55,111 @@ function playRound(p, c) {
    }
 }
 
-// DOM query
-const rock = document.querySelector('.rock');
-const papper = document.querySelector('.papper');
-const scissor = document.querySelector('.scissor');
-const playerScoreEl = document.querySelector('.player');
-const comScoreEl = document.querySelector('.com');
-const results = document.querySelector('.tempResults');
-
-// Initialize first score
-let playerScore = 0;
-let computerScore = 0;
-
-// display score
-playerScoreEl.textContent = playerScore;
-comScoreEl.textContent = computerScore;
-
-rock.addEventListener('click', function () {
-   const result = playRound('rock', computerPlay());
-   results.textContent = result;
-
-   if (result.includes('Win')) {
-      playerScore += 1;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   } else if (result.includes('Lose')) {
-      computerScore += 1;
-      comScoreEl.textContent = computerScore;
-      playerScoreEl.textContent = playerScore;
-   } else {
-      playerScore += 0;
-      computerScore += 0;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   }
-});
-
-papper.addEventListener('click', function () {
-   const result = playRound('papper', computerPlay());
-   results.textContent = result;
-
-   if (result.includes('Win')) {
-      console.log('+1');
-      playerScore += 1;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   } else if (result.includes('Lose')) {
-      computerScore += 1;
-      comScoreEl.textContent = computerScore;
-      playerScoreEl.textContent = playerScore;
-   } else {
-      playerScore += 0;
-      computerScore += 0;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   }
-});
-
-scissor.addEventListener('click', function () {
-   const result = playRound('scissor', computerPlay());
-   results.textContent = result;
-
-   if (result.includes('Win')) {
-      console.log('+1');
-      playerScore += 1;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   } else if (result.includes('Lose')) {
-      computerScore += 1;
-      comScoreEl.textContent = computerScore;
-      playerScoreEl.textContent = playerScore;
-   } else {
-      playerScore += 0;
-      computerScore += 0;
-      playerScoreEl.textContent = playerScore;
-      comScoreEl.textContent = computerScore;
-   }
-});
-
 // This function is to start the game
-// function game() {
-//    // initializing first score
-//    let playerScore = 0;
-//    let computerScore = 0;
+function game() {
+   // DOM query
+   const rock = document.querySelector('.rock');
+   const papper = document.querySelector('.papper');
+   const scissor = document.querySelector('.scissor');
+   const playerScoreEl = document.querySelector('.player');
+   const comScoreEl = document.querySelector('.com');
+   const tempResults = document.querySelector('.tempResults');
+   const finalResults = document.querySelector('.finalResults');
 
-//    // using for loop cuz we want to loop the following code 5 times, which is tranlates to a 5 rounds game.
-//    for (let i = 0; i < 5; i++) {
-//       /* const playerSelection = playerPlay(); // <- generate random player choice . It's only for testing purposes */
-//       const playerSelection = prompt('Type Rock, Papper or Scissor').toLowerCase(); // <- player can type case insensitive word in the prompt either rock, papper, or scissor. Cuz toLowerCase() method converts all words to lower case, doesn't matter if the word is capital or mixed capital, ie : ROCK or ROck
-//       const computerSelection = computerPlay(); // <- randomly generated computer choice, it returns a string either word rock, papper, or scissor.
-//       console.log(`---------------Round ${i + 1}-------------------`); // <- log the round to the console, this code is living inside the loop so we can access and use the iterator (i) as a round dynamically.
-//       const result = playRound(playerSelection, computerSelection); // <- we put the player choice and computer choice here and store the return value to 'result' variable.
+   // Initialize first score
+   let playerScore = 0;
+   let computerScore = 0;
 
-//       // if player enters empty word or click the cancel button in the prompt, the game ended by this code, it's not perfect, it's still work in progress.
-//       if (playerSelection === '' || playerSelection === null) {
-//          alert(`Please insert a correct word`);
-//       }
+   // display score
+   playerScoreEl.textContent = playerScore;
+   comScoreEl.textContent = computerScore;
 
-//       // This code is to add score if there's a word win in the result, the word 'Win' comes from the return value of playRound() function. The includes() method searches the word 'Win', if it found it, the method returns 'true'.
-//       if (result.includes('Win')) {
-//          console.log(`YOU WON!!`);
-//          console.log(`SCORE + 1`);
-//          playerScore = playerScore + 1;
-//       } else if (result.includes('Lose')) {
-//          console.log(`YOU LOSE!!`);
-//          console.log(`COMPUTER SCORE + 1`);
-//          computerScore = computerScore + 1;
-//       } else {
-//          console.log('TIE!!');
-//          playerScore = playerScore + 0;
-//          computerScore = computerScore + 0;
-//       }
-//    }
+   rock.addEventListener('click', function () {
+      const result = playRound('rock', computerPlay());
+      tempResults.textContent = result;
 
-//    // log the  overall and final result to the console
-//    console.log(`---------------OVERALL RESULT-------------------`);
-//    console.log(`Final player score : ${playerScore}`);
-//    console.log(`Final computer score : ${computerScore}`);
+      if (result.includes('Win')) {
+         playerScore = playerScore + 1;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      } else if (result.includes('Lose')) {
+         computerScore = computerScore + 1;
+         comScoreEl.textContent = computerScore;
+         playerScoreEl.textContent = playerScore;
+      } else {
+         playerScore = playerScore + 0;
+         computerScore = computerScore + 0;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      }
 
-//    if (playerScore > computerScore) {
-//       console.log(`---------------FINAL RESULT-------------------`);
-//       console.log(`THE PLAYER WIN!!!`);
-//    } else {
-//       console.log(`---------------FINAL RESULT-------------------`);
-//       console.log(`THE COMPUTER WIN!!!`);
-//    }
-// }
+      // Final Result
+      if (playerScore === 5) finalResults.textContent = 'You WIN';
+      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+   });
 
-// start the game by calling/invoke game() function
-//game();
+   papper.addEventListener('click', function () {
+      const result = playRound('papper', computerPlay());
+      tempResults.textContent = result;
+
+      if (result.includes('Win')) {
+         playerScore += 1;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      } else if (result.includes('Lose')) {
+         computerScore += 1;
+         comScoreEl.textContent = computerScore;
+         playerScoreEl.textContent = playerScore;
+      } else {
+         playerScore += 0;
+         computerScore += 0;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      }
+
+      // Final Result
+      if (playerScore === 5) finalResults.textContent = 'You WIN';
+      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+   });
+
+   scissor.addEventListener('click', function () {
+      const result = playRound('scissor', computerPlay());
+      tempResults.textContent = result;
+
+      if (result.includes('Win')) {
+         playerScore += 1;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      } else if (result.includes('Lose')) {
+         computerScore += 1;
+         comScoreEl.textContent = computerScore;
+         playerScoreEl.textContent = playerScore;
+      } else {
+         playerScore += 0;
+         computerScore += 0;
+         playerScoreEl.textContent = playerScore;
+         comScoreEl.textContent = computerScore;
+      }
+
+      // Final Result
+      if (playerScore === 5) finalResults.textContent = 'You WIN';
+      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+   });
+
+   //    // log the  overall and final result to the console
+   //    console.log(`---------------OVERALL RESULT-------------------`);
+   //    console.log(`Final player score : ${playerScore}`);
+   //    console.log(`Final computer score : ${computerScore}`);
+
+   //    if (playerScore > computerScore) {
+   //       console.log(`---------------FINAL RESULT-------------------`);
+   //       console.log(`THE PLAYER WIN!!!`);
+   //    } else {
+   //       console.log(`---------------FINAL RESULT-------------------`);
+   //       console.log(`THE COMPUTER WIN!!!`);
+   //    }
+   // }
+
+   // start the game by calling/invoke game() function
+}
+game();
