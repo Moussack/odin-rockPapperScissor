@@ -27,28 +27,28 @@ function computerPlay() {
 function playRound(p, c) {
    if (p === 'rock' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Lose, Papper beats Rock';
+      return `You Lose, Papper beats Rock, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'rock' && c === 'scissor') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Win, Rock beats scissor';
+      return `You Win, Rock beats scissor, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'rock' && c === 'rock') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
       return 'Tie';
    } else if (p === 'papper' && c === 'rock') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Win, Papper beats Rock';
+      return `You Win, Papper beats Rock, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'papper' && c === 'scissor') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Lose, Scissor beats Papper';
+      return `You Lose, Scissor beats Papper, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'papper' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
       return 'Tie';
    } else if (p === 'scissor' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Win, Scissor beats Papper';
+      return `You Win, Scissor beats Papper, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'scissor' && c === 'rock') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'You Lose, Rock beats Scissor';
+      return `You Lose, Rock beats Scissor, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'scissor' && c === 'scissor') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
       return 'Tie';
@@ -95,7 +95,7 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
       if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
@@ -119,7 +119,7 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
       if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
@@ -143,7 +143,7 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
       if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
