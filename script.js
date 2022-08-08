@@ -94,8 +94,8 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'You WIN';
-      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
    papper.addEventListener('click', function () {
@@ -118,8 +118,8 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'You WIN';
-      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
    scissor.addEventListener('click', function () {
@@ -142,8 +142,8 @@ function game() {
       }
 
       // Final Result
-      if (playerScore === 5) finalResults.textContent = 'You WIN';
-      if (computerScore === 5) finalResults.textContent = 'You LOSE';
+      if (playerScore === 5) finalResults.textContent = 'Congratulation Youve won the game';
+      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
    });
 
    //    // log the  overall and final result to the console
