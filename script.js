@@ -55,17 +55,17 @@ function playRound(p, c) {
    }
 }
 
+// DOM query
+const rock = document.querySelector('.rock');
+const papper = document.querySelector('.papper');
+const scissor = document.querySelector('.scissor');
+const playerScoreEl = document.querySelector('.player');
+const comScoreEl = document.querySelector('.com');
+const tempResults = document.querySelector('.tempResults');
+const finalResults = document.querySelector('.finalResults');
+
 // This function is to start the game
 function game() {
-   // DOM query
-   const rock = document.querySelector('.rock');
-   const papper = document.querySelector('.papper');
-   const scissor = document.querySelector('.scissor');
-   const playerScoreEl = document.querySelector('.player');
-   const comScoreEl = document.querySelector('.com');
-   const tempResults = document.querySelector('.tempResults');
-   const finalResults = document.querySelector('.finalResults');
-
    // Initialize first score
    let playerScore = 0;
    let computerScore = 0;
@@ -74,6 +74,7 @@ function game() {
    playerScoreEl.textContent = playerScore;
    comScoreEl.textContent = computerScore;
 
+   // playing
    rock.addEventListener('click', function () {
       const result = playRound('rock', computerPlay());
       tempResults.textContent = result;
