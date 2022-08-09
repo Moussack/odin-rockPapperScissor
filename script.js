@@ -86,12 +86,18 @@ function game() {
       playerScore = 0;
       computerScore = 0;
       tempResults.textContent = '';
+      finalResults.textContent = '';
       updateScore();
    }
 
+   // function to display score to the DOM
+   function displayScore() {
+      playerScoreEl.textContent = playerScore;
+      comScoreEl.textContent = computerScore;
+   }
+
    // display score to the DOM
-   playerScoreEl.textContent = playerScore;
-   comScoreEl.textContent = computerScore;
+   displayScore();
 
    // Add event listener to the buttons element
    rpsBtnElements.forEach((el) =>
