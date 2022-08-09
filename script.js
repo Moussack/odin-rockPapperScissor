@@ -51,6 +51,7 @@ const comScoreEl = document.querySelector('.com');
 const tempResults = document.querySelector('.tempResults');
 const finalResults = document.querySelector('.finalResults');
 const rpsBtnElements = document.querySelectorAll('.rps');
+const resetGame = document.querySelector('.reset');
 
 // This function is to start the game
 function game() {
@@ -78,6 +79,14 @@ function game() {
    function tie() {
       playerScore = playerScore + 0;
       computerScore = computerScore + 0;
+   }
+
+   // function to reset the game
+   function reset() {
+      playerScore = 0;
+      computerScore = 0;
+      tempResults.textContent = '';
+      updateScore();
    }
 
    // display score to the DOM
@@ -113,5 +122,8 @@ function game() {
          if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
       })
    );
+
+   // add eventListener to play again button to reset the game
+   resetGame.addEventListener('click', reset);
 }
 game();
