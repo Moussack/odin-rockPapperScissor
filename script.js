@@ -10,20 +10,7 @@ function computerPlay() {
    }
 }
 
-// This function randomly determines player's choice (for testing purposes), the function returns one value (string) either the word rock, papper or scissor
-/* function playerPlay() {
-   const playerSelection = Math.floor(Math.random() * 3); // <- create random number beetwen 0 - 2 (so it's 3 choices)
-   if (playerSelection === 0) {
-      return 'rock';
-   } else if (playerSelection === 1) {
-      return 'papper';
-   } else {
-      return 'scissor';
-   }
-} */
-
-// this function controls all of the output scenario based on player's choise
-// p = player, c = computer.
+// This function determines the outcome of the choice
 function playRound(p, c) {
    if (p === 'rock' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
