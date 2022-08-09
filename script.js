@@ -55,10 +55,6 @@ const resetGame = document.querySelector('.reset');
 
 // This function is to start the game
 function game() {
-   // Initialize first scores
-   let playerScore = 0;
-   let computerScore = 0;
-
    // function to update the score in the DOM
    function updateScore() {
       playerScoreEl.textContent = playerScore;
@@ -96,17 +92,23 @@ function game() {
       comScoreEl.textContent = computerScore;
    }
 
+   /* ________________________________THE GAME'S LOGIC____________________________________ */
+
+   // Initialize first scores
+   let playerScore = 0;
+   let computerScore = 0;
+
    // display score to the DOM
    displayScore();
 
    // Add event listener to the buttons element
-   rpsBtnElements.forEach((el) =>
-      el.addEventListener('click', function () {
+   rpsBtnElements.forEach((rpsBtnElement) =>
+      rpsBtnElement.addEventListener('click', function () {
          // create result variable to hold the return value from playRound function
          let result;
-         if (el.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
-         if (el.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
-         if (el.getAttribute('id') === 'scissor') result = playRound('scissor', computerPlay());
+         if (rpsBtnElement.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
+         if (rpsBtnElement.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
+         if (rpsBtnElement.getAttribute('id') === 'scissor') result = playRound('scissor', computerPlay());
 
          // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
