@@ -58,6 +58,28 @@ function game() {
    let playerScore = 0;
    let computerScore = 0;
 
+   // function to update the score in the DOM
+   function updateScore() {
+      playerScoreEl.textContent = playerScore;
+      comScoreEl.textContent = computerScore;
+   }
+
+   // function to add player's score
+   function addPlayerScore() {
+      playerScore = playerScore + 1;
+   }
+
+   // function to add computers's score
+   function addComScore() {
+      computerScore = computerScore + 1;
+   }
+
+   // function if the result is tie
+   function tie() {
+      playerScore = playerScore + 0;
+      computerScore = computerScore + 0;
+   }
+
    // display score to the DOM
    playerScoreEl.textContent = playerScore;
    comScoreEl.textContent = computerScore;
@@ -65,7 +87,7 @@ function game() {
    // Add event listener to the buttons element
    rpsBtnElements.forEach((el) =>
       el.addEventListener('click', function () {
-         // create result variable to hold the result from playRound function
+         // create result variable to hold the return value from playRound function
          let result;
          if (el.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
          if (el.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
@@ -76,18 +98,14 @@ function game() {
 
          // add the score if player or computer win or lose
          if (result.includes('Win')) {
-            playerScore = playerScore + 1;
-            playerScoreEl.textContent = playerScore;
-            comScoreEl.textContent = computerScore;
+            addPlayerScore();
+            updateScore();
          } else if (result.includes('Lose')) {
-            computerScore = computerScore + 1;
-            comScoreEl.textContent = computerScore;
-            playerScoreEl.textContent = playerScore;
+            addComScore();
+            updateScore();
          } else {
-            playerScore = playerScore + 0;
-            computerScore = computerScore + 0;
-            playerScoreEl.textContent = playerScore;
-            comScoreEl.textContent = computerScore;
+            tie();
+            updateScore();
          }
 
          // whoever reaches 5 scores first, they win the game
