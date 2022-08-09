@@ -10,7 +10,7 @@ function computerPlay() {
    }
 }
 
-// This function determines the outcome of the choice
+// this function determine the outcome of the choices
 function playRound(p, c) {
    if (p === 'rock' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
@@ -50,104 +50,47 @@ const playerScoreEl = document.querySelector('.player');
 const comScoreEl = document.querySelector('.com');
 const tempResults = document.querySelector('.tempResults');
 const finalResults = document.querySelector('.finalResults');
+const rpsBtnElements = document.querySelectorAll('.rps');
 
 // This function is to start the game
 function game() {
-   // Initialize first score
+   // Initialize first scores
    let playerScore = 0;
    let computerScore = 0;
 
-   // display score
+   // display score to the DOM
    playerScoreEl.textContent = playerScore;
    comScoreEl.textContent = computerScore;
 
-   // playing
-   rock.addEventListener('click', function () {
-      const result = playRound('rock', computerPlay());
-      tempResults.textContent = result;
+   // Add event listener to the buttons element
+   rpsBtnElements.forEach((el) =>
+      el.addEventListener('click', function () {
+         let result;
+         if (el.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
+         if (el.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
+         if (el.getAttribute('id') === 'scissor') result = playRound('scissor', computerPlay());
 
-      if (result.includes('Win')) {
-         playerScore = playerScore + 1;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      } else if (result.includes('Lose')) {
-         computerScore = computerScore + 1;
-         comScoreEl.textContent = computerScore;
-         playerScoreEl.textContent = playerScore;
-      } else {
-         playerScore = playerScore + 0;
-         computerScore = computerScore + 0;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      }
+         // showing result of the player choices to the dom
+         tempResults.textContent = result;
 
-      // Final Result
-      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
-      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
-   });
+         if (result.includes('Win')) {
+            playerScore = playerScore + 1;
+            playerScoreEl.textContent = playerScore;
+            comScoreEl.textContent = computerScore;
+         } else if (result.includes('Lose')) {
+            computerScore = computerScore + 1;
+            comScoreEl.textContent = computerScore;
+            playerScoreEl.textContent = playerScore;
+         } else {
+            playerScore = playerScore + 0;
+            computerScore = computerScore + 0;
+            playerScoreEl.textContent = playerScore;
+            comScoreEl.textContent = computerScore;
+         }
 
-   papper.addEventListener('click', function () {
-      const result = playRound('papper', computerPlay());
-      tempResults.textContent = result;
-
-      if (result.includes('Win')) {
-         playerScore += 1;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      } else if (result.includes('Lose')) {
-         computerScore += 1;
-         comScoreEl.textContent = computerScore;
-         playerScoreEl.textContent = playerScore;
-      } else {
-         playerScore += 0;
-         computerScore += 0;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      }
-
-      // Final Result
-      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
-      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
-   });
-
-   scissor.addEventListener('click', function () {
-      const result = playRound('scissor', computerPlay());
-      tempResults.textContent = result;
-
-      if (result.includes('Win')) {
-         playerScore += 1;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      } else if (result.includes('Lose')) {
-         computerScore += 1;
-         comScoreEl.textContent = computerScore;
-         playerScoreEl.textContent = playerScore;
-      } else {
-         playerScore += 0;
-         computerScore += 0;
-         playerScoreEl.textContent = playerScore;
-         comScoreEl.textContent = computerScore;
-      }
-
-      // Final Result
-      if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
-      if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
-   });
-
-   //    // log the  overall and final result to the console
-   //    console.log(`---------------OVERALL RESULT-------------------`);
-   //    console.log(`Final player score : ${playerScore}`);
-   //    console.log(`Final computer score : ${computerScore}`);
-
-   //    if (playerScore > computerScore) {
-   //       console.log(`---------------FINAL RESULT-------------------`);
-   //       console.log(`THE PLAYER WIN!!!`);
-   //    } else {
-   //       console.log(`---------------FINAL RESULT-------------------`);
-   //       console.log(`THE COMPUTER WIN!!!`);
-   //    }
-   // }
-
-   // start the game by calling/invoke game() function
+         if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
+         if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
+      })
+   );
 }
 game();
