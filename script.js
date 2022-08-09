@@ -65,14 +65,16 @@ function game() {
    // Add event listener to the buttons element
    rpsBtnElements.forEach((el) =>
       el.addEventListener('click', function () {
+         // create result variable to hold the result from playRound function
          let result;
          if (el.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
          if (el.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
          if (el.getAttribute('id') === 'scissor') result = playRound('scissor', computerPlay());
 
-         // showing result of the player choices to the dom
+         // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
 
+         // add the score if player or computer win or lose
          if (result.includes('Win')) {
             playerScore = playerScore + 1;
             playerScoreEl.textContent = playerScore;
@@ -88,6 +90,7 @@ function game() {
             comScoreEl.textContent = computerScore;
          }
 
+         // whoever reaches 5 scores first, they win the game
          if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
          if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
       })
