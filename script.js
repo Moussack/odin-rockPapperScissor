@@ -102,7 +102,7 @@ function game() {
    // display score to the DOM
    displayScore();
 
-   // Add event listener to the buttons element
+   // Add event listener to the img element
    rpsImgs.forEach((rpsImg) =>
       rpsImg.addEventListener('click', function () {
          // create result variable to hold the return value from playRound function
