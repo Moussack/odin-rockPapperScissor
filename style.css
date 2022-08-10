@@ -1,9 +1,8 @@
-.rock-img img,
-.papper-img img,
-.scissor-img img {
+.rps-img img {
    width: 200px;
 }
 
 .rps-container {
    display: flex;
+   gap: 20px;
 }

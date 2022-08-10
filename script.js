@@ -50,8 +50,9 @@ const playerScoreEl = document.querySelector('.player');
 const comScoreEl = document.querySelector('.com');
 const tempResults = document.querySelector('.tempResults');
 const finalResults = document.querySelector('.finalResults');
-const rpsBtnElements = document.querySelectorAll('.rps');
+// const rpsBtnElements = document.querySelectorAll('.rps');
 const resetGame = document.querySelector('.reset');
+const rpsImgs = document.querySelectorAll('.rps-img');
 
 // This function is to start the game
 function game() {
@@ -102,13 +103,13 @@ function game() {
    displayScore();
 
    // Add event listener to the buttons element
-   rpsBtnElements.forEach((rpsBtnElement) =>
-      rpsBtnElement.addEventListener('click', function () {
+   rpsImgs.forEach((rpsImg) =>
+      rpsImg.addEventListener('click', function () {
          // create result variable to hold the return value from playRound function
          let result;
-         if (rpsBtnElement.getAttribute('id') === 'rock') result = playRound('rock', computerPlay());
-         if (rpsBtnElement.getAttribute('id') === 'papper') result = playRound('papper', computerPlay());
-         if (rpsBtnElement.getAttribute('id') === 'scissor') result = playRound('scissor', computerPlay());
+         if (rpsImg.getAttribute('id') === 'rock-img') result = playRound('rock', computerPlay());
+         if (rpsImg.getAttribute('id') === 'papper-img') result = playRound('papper', computerPlay());
+         if (rpsImg.getAttribute('id') === 'scissor-img') result = playRound('scissor', computerPlay());
 
          // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
