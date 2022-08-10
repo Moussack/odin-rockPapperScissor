@@ -20,7 +20,7 @@ function playRound(p, c) {
       return `You Win, Rock beats scissor, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'rock' && c === 'rock') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'Tie';
+      return `Tie, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'papper' && c === 'rock') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
       return `You Win, Papper beats Rock, You choose ${p} and Computer choose ${c}`;
@@ -29,7 +29,7 @@ function playRound(p, c) {
       return `You Lose, Scissor beats Papper, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'papper' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'Tie';
+      return `Tie, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'scissor' && c === 'papper') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
       return `You Win, Scissor beats Papper, You choose ${p} and Computer choose ${c}`;
@@ -38,7 +38,7 @@ function playRound(p, c) {
       return `You Lose, Rock beats Scissor, You choose ${p} and Computer choose ${c}`;
    } else if (p === 'scissor' && c === 'scissor') {
       console.log(`Player choose: ${p} And Computer choose: ${c}`);
-      return 'Tie';
+      return `Tie, You choose ${p} and Computer choose ${c}`;
    }
 }
 
@@ -114,14 +114,62 @@ function game() {
          // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
 
-         // add the score if player or computer win or lose
-         if (result.includes('Win')) {
+         // add the score ROCK
+         if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
             addPlayerScore();
             updateScore();
-         } else if (result.includes('Lose')) {
+         }
+         if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
             addComScore();
             updateScore();
-         } else {
+         }
+         if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+            tie();
+            updateScore();
+         }
+
+         // add the score PAPPER
+         if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+            addPlayerScore();
+            updateScore();
+         }
+         if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
+            addComScore();
+            updateScore();
+         }
+         if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
+            tie();
+            updateScore();
+         }
+
+         // add the score SCISSOR
+         if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
+            addPlayerScore();
+            updateScore();
+         }
+         if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+            addComScore();
+            updateScore();
+         }
+         if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
+            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
             tie();
             updateScore();
          }

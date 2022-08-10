@@ -2,7 +2,13 @@
    width: 200px;
 }
 
-.rps-container {
+.rps-container,
+.img-result {
    display: flex;
    gap: 20px;
+}
+
+.player-display,
+.computer-display {
+   width: 250px;
 }
