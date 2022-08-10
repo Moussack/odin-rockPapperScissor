@@ -1,0 +1,9 @@
+.rock-img img,
+.papper-img img,
+.scissor-img img {
+   width: 200px;
+}
+
+.rps-container {
+   display: flex;
+}
