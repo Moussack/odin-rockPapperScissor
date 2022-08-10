@@ -95,7 +95,7 @@ function game() {
       comScoreEl.textContent = computerScore;
    }
 
-   // function to display corresponding image based on player & computer choice
+   // display corresponding image to the DOM based on playRound's retun value (result)
    function displayImage(result) {
       // add the score ROCK
       if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
@@ -187,7 +187,7 @@ function game() {
          // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
 
-         // display corresponding image to the DOM based on result's retun value
+         // display corresponding image to the DOM based on playRound's retun value (result)
          displayImage(result);
 
          // whoever reaches 5 scores first, they win the game
