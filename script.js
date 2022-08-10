@@ -1,3 +1,15 @@
+// DOM query
+const rock = document.querySelector('.rock');
+const papper = document.querySelector('.papper');
+const scissor = document.querySelector('.scissor');
+const playerScoreEl = document.querySelector('.player');
+const comScoreEl = document.querySelector('.com');
+const tempResults = document.querySelector('.tempResults');
+const finalResults = document.querySelector('.finalResults');
+// const rpsBtnElements = document.querySelectorAll('.rps');
+const resetGame = document.querySelector('.reset');
+const rpsImgs = document.querySelectorAll('.rps-img');
+
 // This function randomly determines computer's choice, the function returns one value (string) either the word rock, papper or scissor
 function computerPlay() {
    const comSelection = Math.floor(Math.random() * 3); // <- create random number beetwen 0 - 2 (so it's 3 choices)
@@ -42,18 +54,6 @@ function playRound(p, c) {
    }
 }
 
-// DOM query
-const rock = document.querySelector('.rock');
-const papper = document.querySelector('.papper');
-const scissor = document.querySelector('.scissor');
-const playerScoreEl = document.querySelector('.player');
-const comScoreEl = document.querySelector('.com');
-const tempResults = document.querySelector('.tempResults');
-const finalResults = document.querySelector('.finalResults');
-// const rpsBtnElements = document.querySelectorAll('.rps');
-const resetGame = document.querySelector('.reset');
-const rpsImgs = document.querySelectorAll('.rps-img');
-
 // This function is to start the game
 function game() {
    // function to update the score in the DOM
@@ -80,6 +80,8 @@ function game() {
 
    // function to reset the game
    function reset() {
+      document.querySelector('.player-display').setAttribute('src', '/img/rps.svg');
+      document.querySelector('.computer-display').setAttribute('src', '/img/rps.svg');
       playerScore = 0;
       computerScore = 0;
       tempResults.textContent = '';
@@ -93,6 +95,69 @@ function game() {
       comScoreEl.textContent = computerScore;
    }
 
+   // function to display corresponding image based on player & computer choice
+   function displayImage(result) {
+      // add the score ROCK
+      if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
+         addPlayerScore();
+         updateScore();
+      }
+      if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
+         addComScore();
+         updateScore();
+      }
+      if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+         tie();
+         updateScore();
+      }
+
+      // add the score PAPPER
+      if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+         addPlayerScore();
+         updateScore();
+      }
+      if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
+         addComScore();
+         updateScore();
+      }
+      if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
+         tie();
+         updateScore();
+      }
+
+      // add the score SCISSOR
+      if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
+         addPlayerScore();
+         updateScore();
+      }
+      if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
+         addComScore();
+         updateScore();
+      }
+      if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
+         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
+         tie();
+         updateScore();
+      }
+   }
+
    /* ________________________________THE GAME'S LOGIC____________________________________ */
 
    // Initialize first scores
@@ -104,75 +169,26 @@ function game() {
 
    // Add event listener to the img element
    rpsImgs.forEach((rpsImg) =>
-      rpsImg.addEventListener('click', function () {
+      rpsImg.addEventListener('click', function (e) {
          // create result variable to hold the return value from playRound function
          let result;
-         if (rpsImg.getAttribute('id') === 'rock-img') result = playRound('rock', computerPlay());
-         if (rpsImg.getAttribute('id') === 'papper-img') result = playRound('papper', computerPlay());
-         if (rpsImg.getAttribute('id') === 'scissor-img') result = playRound('scissor', computerPlay());
+         if (e.target.getAttribute('class') === 'rock') {
+            result = playRound(e.target.getAttribute('class'), computerPlay());
+         }
+
+         if (e.target.getAttribute('class') === 'papper') {
+            result = playRound(e.target.getAttribute('class'), computerPlay());
+         }
+
+         if (e.target.getAttribute('class') === 'scissor') {
+            result = playRound(e.target.getAttribute('class'), computerPlay());
+         }
 
          // showing temporary result of the player choices to the DOM when player click the button
          tempResults.textContent = result;
 
-         // add the score ROCK
-         if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
-            addPlayerScore();
-            updateScore();
-         }
-         if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
-            addComScore();
-            updateScore();
-         }
-         if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
-            tie();
-            updateScore();
-         }
-
-         // add the score PAPPER
-         if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
-            addPlayerScore();
-            updateScore();
-         }
-         if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
-            addComScore();
-            updateScore();
-         }
-         if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
-            tie();
-            updateScore();
-         }
-
-         // add the score SCISSOR
-         if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
-            addPlayerScore();
-            updateScore();
-         }
-         if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
-            addComScore();
-            updateScore();
-         }
-         if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
-            document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
-            document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
-            tie();
-            updateScore();
-         }
+         // display corresponding image to the DOM based on result's retun value
+         displayImage(result);
 
          // whoever reaches 5 scores first, they win the game
          if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
@@ -180,7 +196,8 @@ function game() {
       })
    );
 
-   // add eventListener to play again button to reset the game
+   // Button to reset the game
    resetGame.addEventListener('click', reset);
 }
+
 game();
