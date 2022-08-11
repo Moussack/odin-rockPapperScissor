@@ -104,19 +104,19 @@ function game() {
    function displayImage(result) {
       // add the score ROCK
       if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/rock.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
          tie();
          updateScore();
@@ -124,19 +124,19 @@ function game() {
 
       // add the score PAPPER
       if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/papper.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
          tie();
          updateScore();
@@ -144,19 +144,19 @@ function game() {
 
       // add the score SCISSOR
       if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/papper.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/rock.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
-         document.querySelector('.player-display').setAttribute('src', '/img/scissor.svg');
+         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
          document.querySelector('.computer-display').setAttribute('src', '/img/scissor.svg');
          tie();
          updateScore();
@@ -195,6 +195,9 @@ function game() {
          // display corresponding image to the DOM based on playRound's retun value (result)
          playerFlip.classList.add('flipped');
          displayImage(result);
+         setTimeout(() => {
+            playerFlip.classList.remove(`flipped`);
+         }, 1000);
 
          // whoever reaches 5 scores first, they win the game
          if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";

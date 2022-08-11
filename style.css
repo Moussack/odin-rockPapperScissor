@@ -32,6 +32,7 @@
    border-radius: 25%;
 }
 
+/* front */
 .player-card .player-front,
 .computer-card .computer-front {
    transform: rotateY(90deg);
@@ -41,6 +42,12 @@
 
 .flipped .player-front {
    transform: rotateY(0deg);
+   transition-delay: 0.2s;
+}
+
+/* back */
+.player-card .player-back {
+   transition: all ease-in 0.2s;
    transition-delay: 0.2s;
 }
 
