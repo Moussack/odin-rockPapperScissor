@@ -13,7 +13,7 @@
    width: 250px;
 }
 
-/* image flipping */
+/* ________image flipping__________ */
 .resultContainer {
    display: flex;
    gap: 20px;
@@ -40,18 +40,21 @@
    position: absolute;
 }
 
-.flipped .player-front {
+.flipped .player-front,
+.flipped .computer-front {
    transform: rotateY(0deg);
    transition-delay: 0.2s;
 }
 
 /* back */
-.player-card .player-back {
+.player-card .player-back,
+.computer-card .computer-back {
    transition: all ease-in 0.2s;
    transition-delay: 0.2s;
 }
 
-.flipped .player-back {
+.flipped .player-back,
+.flipped .computer-back {
    transform: rotateY(90deg);
    transition-delay: 0s;
 }
