@@ -10,6 +10,11 @@ const finalResults = document.querySelector('.finalResults');
 const resetGame = document.querySelector('.reset');
 const rpsImgs = document.querySelectorAll('.rps-img');
 
+const playerCard = document.querySelector('.player-card');
+const playerFlip = document.querySelector('.player-flip');
+const playerFronnt = document.querySelector('.player-front');
+const playerBack = document.querySelector('.player-back');
+
 // This function randomly determines computer's choice, the function returns one value (string) either the word rock, papper or scissor
 function computerPlay() {
    const comSelection = Math.floor(Math.random() * 3); // <- create random number beetwen 0 - 2 (so it's 3 choices)
@@ -188,6 +193,7 @@ function game() {
          tempResults.textContent = result;
 
          // display corresponding image to the DOM based on playRound's retun value (result)
+         playerFlip.classList.add('flipped');
          displayImage(result);
 
          // whoever reaches 5 scores first, they win the game
