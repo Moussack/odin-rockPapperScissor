@@ -204,7 +204,7 @@ function game() {
          setTimeout(() => {
             playerFlip.classList.remove(`flipped`);
             computerFlip.classList.remove(`flipped`);
-         }, 900);
+         }, 1000);
 
          // whoever reaches 5 scores first, they win the game
          if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
