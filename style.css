@@ -40,7 +40,7 @@
 
 .player-card img,
 .computer-card img {
-   width: 150px;
+   width: 185px;
    display: block;
    border: 3px solid black;
    border-radius: 20%;
