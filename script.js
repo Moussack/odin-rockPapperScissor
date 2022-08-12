@@ -169,6 +169,8 @@ function game() {
    }
 
    /* ________________________________THE GAME'S LOGIC____________________________________ */
+   // active state is to maek the choices unselectable for a second (prevent user clicked many times)
+   let active = true;
 
    // Initialize first scores
    let playerScore = 0;
@@ -180,35 +182,42 @@ function game() {
    // Add event listener to the img element
    rpsImgs.forEach((rpsImg) =>
       rpsImg.addEventListener('click', function (e) {
-         // create result variable to hold the return value from playRound function
-         let result;
-         if (e.target.getAttribute('class') === 'rock') {
-            result = playRound(e.target.getAttribute('class'), computerPlay());
+         if (active) {
+            // Result variable is to hold the return value from playRound function
+            let result;
+            if (e.target.getAttribute('class') === 'rock') {
+               result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
+
+            if (e.target.getAttribute('class') === 'papper') {
+               result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
+
+            if (e.target.getAttribute('class') === 'scissor') {
+               result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
+
+            // showing temporary result of the player choices to the DOM when player click the button
+            tempResults.textContent = result;
+
+            // display corresponding image to the DOM based on playRound's retun value (result)
+            active = false;
+            playerFlip.classList.add('flipped');
+            computerFlip.classList.add('flipped');
+            displayImage(result);
+            setTimeout(() => {
+               playerFlip.classList.remove(`flipped`);
+               computerFlip.classList.remove(`flipped`);
+            }, 1000);
+
+            setTimeout(() => {
+               active = true;
+            }, 1500);
+
+            // whoever reaches 5 scores first, they win the game
+            if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
+            if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
          }
-
-         if (e.target.getAttribute('class') === 'papper') {
-            result = playRound(e.target.getAttribute('class'), computerPlay());
-         }
-
-         if (e.target.getAttribute('class') === 'scissor') {
-            result = playRound(e.target.getAttribute('class'), computerPlay());
-         }
-
-         // showing temporary result of the player choices to the DOM when player click the button
-         tempResults.textContent = result;
-
-         // display corresponding image to the DOM based on playRound's retun value (result)
-         playerFlip.classList.add('flipped');
-         computerFlip.classList.add('flipped');
-         displayImage(result);
-         setTimeout(() => {
-            playerFlip.classList.remove(`flipped`);
-            computerFlip.classList.remove(`flipped`);
-         }, 1000);
-
-         // whoever reaches 5 scores first, they win the game
-         if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
-         if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
       })
    );
 
