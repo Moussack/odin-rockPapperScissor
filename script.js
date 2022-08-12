@@ -7,7 +7,7 @@ const comScoreEl = document.querySelector('.com');
 const tempResults = document.querySelector('.tempResults');
 const finalResults = document.querySelector('.finalResults');
 // const rpsBtnElements = document.querySelectorAll('.rps');
-const resetGame = document.querySelector('.reset');
+const resetBtn = document.querySelector('.reset');
 const rpsImgs = document.querySelectorAll('.rps-img');
 
 const playerCard = document.querySelector('.player-card');
@@ -90,8 +90,8 @@ function game() {
 
    // function to reset the game
    function reset() {
-      document.querySelector('.player-display').setAttribute('src', '/img/rps.svg');
-      document.querySelector('.computer-display').setAttribute('src', '/img/rps.svg');
+      playerFront.setAttribute('src', '/img/rps.svg');
+      computerFront.setAttribute('src', '/img/rps.svg');
       playerScore = 0;
       computerScore = 0;
       tempResults.textContent = '';
@@ -103,6 +103,16 @@ function game() {
    function displayScore() {
       playerScoreEl.textContent = playerScore;
       comScoreEl.textContent = computerScore;
+   }
+
+   // function to disable the reset button
+   function disableButton() {
+      resetBtn.setAttribute('disabled', 'true');
+   }
+
+   // function to enable the reset button
+   function enableButton() {
+      resetBtn.removeAttribute('disabled');
    }
 
    // function to display corresponding image to the DOM based on playRound's retun value (result)
@@ -199,6 +209,7 @@ function game() {
 
             // display corresponding image to the DOM based on playRound's retun value (result)
             active = false;
+            disableButton();
             playerFlip.classList.add('flipped');
             computerFlip.classList.add('flipped');
             displayImage(result);
@@ -214,14 +225,20 @@ function game() {
             }, 1500);
 
             // whoever reaches 5 scores first, they win the game.
-            if (playerScore === 5) finalResults.textContent = "Congratulation You've won the game";
-            if (computerScore === 5) finalResults.textContent = 'Computer WON, You Lose the game';
+            if (playerScore === 5) {
+               finalResults.textContent = "Congratulation You've won the game";
+               enableButton();
+            }
+            if (computerScore === 5) {
+               finalResults.textContent = 'Computer WON, You Lose the game';
+               enableButton();
+            }
          }
       })
    );
 
    // Button to reset the game
-   resetGame.addEventListener('click', reset);
+   resetBtn.addEventListener('click', reset);
 }
 
 game();
