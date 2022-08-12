@@ -1,11 +1,22 @@
 .rps-img img {
-   width: 200px;
+   width: 150px;
+   display: block;
+   border: 5px solid black;
+   border-radius: 5%;
+}
+
+.rps-img img:hover {
+   border: 5px solid rgb(43, 75, 218);
 }
 
 .rps-container,
 .img-result {
    display: flex;
    gap: 20px;
+}
+
+.rps-container {
+   margin-bottom: 25px;
 }
 
 .player-display,
@@ -15,8 +26,11 @@
 
 /* ________image flipping__________ */
 .resultContainer {
+   /* width: 360px; */
+   /* padding: 15px; */
    display: flex;
    gap: 20px;
+   /* border: 5px solid green; */
 }
 
 .player-card,
@@ -29,7 +43,11 @@
    width: 150px;
    display: block;
    border: 3px solid black;
-   border-radius: 25%;
+   border-radius: 20%;
+}
+
+.player-front.blueBorder {
+   border: 5px solid rgb(43, 75, 218);
 }
 
 /* front */

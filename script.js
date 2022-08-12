@@ -210,6 +210,7 @@ function game() {
             // display corresponding image to the DOM based on playRound's retun value (result)
             active = false;
             disableButton();
+            playerFront.classList.add('blueBorder');
             playerFlip.classList.add('flipped');
             computerFlip.classList.add('flipped');
             displayImage(result);
@@ -225,11 +226,11 @@ function game() {
             }, 1500);
 
             // whoever reaches 5 scores first, they win the game.
-            if (playerScore === 5) {
+            if (playerScore >= 5) {
                finalResults.textContent = "Congratulation You've won the game";
                enableButton();
             }
-            if (computerScore === 5) {
+            if (computerScore >= 5) {
                finalResults.textContent = 'Computer WON, You Lose the game';
                enableButton();
             }
