@@ -120,7 +120,7 @@ function game() {
       playerFront.classList.add('blueBorder');
    }
 
-   // function to make blue border stay for a second and the removes it
+   // function to make blue border stay for a second and then removes it after
    function bluBorderStay(target) {
       target.classList.add('blueStay');
       setTimeout(() => {
@@ -134,7 +134,7 @@ function game() {
       computerFlip.classList.add('flipped');
    }
 
-   // funtion to flipped back the image
+   // funtion to flipped back the image back
    function flippedTheImagesBack() {
       setTimeout(() => {
          playerFlip.classList.remove(`flipped`);
