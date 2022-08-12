@@ -105,71 +105,71 @@ function game() {
       comScoreEl.textContent = computerScore;
    }
 
-   // display corresponding image to the DOM based on playRound's retun value (result)
+   // function to display corresponding image to the DOM based on playRound's retun value (result)
    function displayImage(result) {
       // add the score ROCK
       if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', '/img/rock.svg');
+         computerFront.setAttribute('src', '/img/scissor.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', '/img/rock.svg');
+         computerFront.setAttribute('src', '/img/papper.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/rock.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', '/img/rock.svg');
+         computerFront.setAttribute('src', '/img/rock.svg');
          tie();
          updateScore();
       }
 
       // add the score PAPPER
       if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', '/img/papper.svg');
+         computerFront.setAttribute('src', '/img/rock.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', '/img/papper.svg');
+         computerFront.setAttribute('src', '/img/scissor.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/papper.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', '/img/papper.svg');
+         computerFront.setAttribute('src', '/img/papper.svg');
          tie();
          updateScore();
       }
 
       // add the score SCISSOR
       if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', '/img/scissor.svg');
+         computerFront.setAttribute('src', '/img/papper.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', '/img/scissor.svg');
+         computerFront.setAttribute('src', '/img/rock.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
-         document.querySelector('.player-front').setAttribute('src', '/img/scissor.svg');
-         document.querySelector('.computer-front').setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', '/img/scissor.svg');
+         computerFront.setAttribute('src', '/img/scissor.svg');
          tie();
          updateScore();
       }
    }
 
    /* ________________________________THE GAME'S LOGIC____________________________________ */
-   // active state is to maek the choices unselectable for a second (prevent user clicked many times)
+   // active state = false is to make the choices unselectable for a second (to prevent user clicked too many times)
    let active = true;
 
    // Initialize first scores
@@ -208,7 +208,7 @@ function game() {
                computerFlip.classList.remove(`flipped`);
             }, 1000);
 
-            // change active state to true again after 1,5 sec
+            // change active state to true again after 1.5 sec
             setTimeout(() => {
                active = true;
             }, 1500);
