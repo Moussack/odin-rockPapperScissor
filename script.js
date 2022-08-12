@@ -115,14 +115,31 @@ function game() {
       resetBtn.removeAttribute('disabled');
    }
 
-   // function to add blue border to stay for a second
-   function blueBorderStay(target) {
-      target.classList.add('blueStay');
-   }
-
    // function to add blue border
    function addBlueBorder() {
       playerFront.classList.add('blueBorder');
+   }
+
+   // function to make blue border stay for a second and the removes it
+   function bluBorderStay(target) {
+      target.classList.add('blueStay');
+      setTimeout(() => {
+         target.classList.remove('blueStay');
+      }, 1200);
+   }
+
+   // function to flip the image
+   function flippedTheImages() {
+      playerFlip.classList.add('flipped');
+      computerFlip.classList.add('flipped');
+   }
+
+   // funtion to flipped back the image
+   function flippedTheImagesBack() {
+      setTimeout(() => {
+         playerFlip.classList.remove(`flipped`);
+         computerFlip.classList.remove(`flipped`);
+      }, 1000);
    }
 
    // function to display corresponding image to the DOM based on playRound's retun value (result)
@@ -207,14 +224,17 @@ function game() {
             let result;
             if (e.target.getAttribute('class') === 'rock') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+               bluBorderStay(e.target);
             }
 
             if (e.target.getAttribute('class') === 'papper') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+               bluBorderStay(e.target);
             }
 
             if (e.target.getAttribute('class') === 'scissor') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+               bluBorderStay(e.target);
             }
 
             // showing temporary result of the player choices to the DOM when player click the button
@@ -224,15 +244,9 @@ function game() {
             active = false;
             disableButton();
             addBlueBorder();
-            playerFlip.classList.add('flipped');
-            computerFlip.classList.add('flipped');
+            flippedTheImages();
             displayImage(result);
-            // remove flipped class after 1 sec
-            setTimeout(() => {
-               playerFlip.classList.remove(`flipped`);
-               computerFlip.classList.remove(`flipped`);
-            }, 1000);
-
+            flippedTheImagesBack();
             // change active state to true again after 1.5 sec
             setTimeout(() => {
                active = true;
