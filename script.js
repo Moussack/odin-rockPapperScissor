@@ -115,6 +115,16 @@ function game() {
       resetBtn.removeAttribute('disabled');
    }
 
+   // function to add blue border to stay for a second
+   function blueBorderStay(target) {
+      target.classList.add('blueStay');
+   }
+
+   // function to add blue border
+   function addBlueBorder() {
+      playerFront.classList.add('blueBorder');
+   }
+
    // function to display corresponding image to the DOM based on playRound's retun value (result)
    function displayImage(result) {
       // add the score ROCK
@@ -195,14 +205,17 @@ function game() {
          if (active) {
             // Result variable is to hold the return value from playRound function
             let result;
-            if (e.target.getAttribute('class') === 'rock')
+            if (e.target.getAttribute('class') === 'rock') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
 
-            if (e.target.getAttribute('class') === 'papper')
+            if (e.target.getAttribute('class') === 'papper') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
 
-            if (e.target.getAttribute('class') === 'scissor')
+            if (e.target.getAttribute('class') === 'scissor') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
+            }
 
             // showing temporary result of the player choices to the DOM when player click the button
             tempResults.textContent = result;
@@ -210,7 +223,7 @@ function game() {
             // display corresponding image to the DOM based on playRound's retun value (result)
             active = false;
             disableButton();
-            playerFront.classList.add('blueBorder');
+            addBlueBorder();
             playerFlip.classList.add('flipped');
             computerFlip.classList.add('flipped');
             displayImage(result);
