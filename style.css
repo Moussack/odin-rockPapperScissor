@@ -6,7 +6,8 @@
 }
 
 .rps-img img:hover {
-   border: 5px solid rgb(122, 122, 122);
+   border: 5px solid rgb(0, 192, 240);
+   transition: all 0.2s;
 }
 
 .rock.blueStay {
