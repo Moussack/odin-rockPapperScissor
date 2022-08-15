@@ -202,21 +202,21 @@ function game() {
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          addPlayerScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          addComScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          tie();
-         updateScore();
+         delayUpdateScore();
       }
 
       // add the score SCISSOR
@@ -225,21 +225,21 @@ function game() {
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          addPlayerScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          addComScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          tie();
-         updateScore();
+         delayUpdateScore();
       }
    }
 
