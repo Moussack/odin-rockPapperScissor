@@ -6,7 +6,7 @@
 }
 
 .rps-img img:hover {
-   border: 5px solid rgb(43, 75, 218);
+   border: 5px solid rgb(122, 122, 122);
 }
 
 .rock.blueStay {
@@ -58,8 +58,12 @@
    border-radius: 20%;
 }
 
-.player-front.blueBorder {
-   border: 5px solid rgb(43, 75, 218);
+.player-front.greenBorder {
+   border: 5px solid rgb(0, 216, 11);
+}
+
+.computer-front.greenBorder {
+   border: 5px solid rgb(0, 216, 11);
 }
 
 /* front */

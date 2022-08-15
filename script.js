@@ -115,9 +115,31 @@ function game() {
       resetBtn.removeAttribute('disabled');
    }
 
-   // function to add blue border
-   function addBlueBorder() {
-      playerFront.classList.add('blueBorder');
+   // function to add green border to player card
+   function addGreenBorderPlayer() {
+      playerFront.classList.add('greenBorder');
+      setTimeout(() => {
+         playerFront.classList.remove('greenBorder');
+      }, 1500);
+   }
+
+   // function to add green border to computer card
+   function addGreenBorderCom() {
+      computerFront.classList.add('greenBorder');
+      setTimeout(() => {
+         computerFront.classList.remove('greenBorder');
+      }, 1500);
+   }
+
+   // function to add green border if result Tie
+   function addGreenBorderTie() {
+      playerFront.classList.add('greenBorder');
+      computerFront.classList.add('greenBorder');
+
+      setTimeout(() => {
+         playerFront.classList.remove('greenBorder');
+         computerFront.classList.remove('greenBorder');
+      }, 1500);
    }
 
    // function to make blue border stay for a second and then removes it after
@@ -146,18 +168,21 @@ function game() {
    function displayImage(result) {
       // add the score ROCK
       if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
+         addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
+         addGreenBorderCom();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
+         addGreenBorderTie();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          tie();
@@ -166,18 +191,21 @@ function game() {
 
       // add the score PAPPER
       if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
+         addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
+         addGreenBorderCom();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
+         addGreenBorderTie();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          tie();
@@ -186,18 +214,21 @@ function game() {
 
       // add the score SCISSOR
       if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
+         addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          addPlayerScore();
          updateScore();
       }
       if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
+         addGreenBorderCom();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          addComScore();
          updateScore();
       }
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
+         addGreenBorderTie();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          tie();
@@ -224,17 +255,17 @@ function game() {
             let result;
             if (e.target.getAttribute('class') === 'rock') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
-               bluBorderStay(e.target);
+               // bluBorderStay(e.target);
             }
 
             if (e.target.getAttribute('class') === 'papper') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
-               bluBorderStay(e.target);
+               //bluBorderStay(e.target);
             }
 
             if (e.target.getAttribute('class') === 'scissor') {
                result = playRound(e.target.getAttribute('class'), computerPlay());
-               bluBorderStay(e.target);
+               //bluBorderStay(e.target);
             }
 
             // showing temporary result of the player choices to the DOM when player click the button
@@ -243,7 +274,6 @@ function game() {
             // display corresponding image to the DOM based on playRound's retun value (result)
             active = false;
             disableButton();
-            addBlueBorder();
             flippedTheImages();
             displayImage(result);
             flippedTheImagesBack();
