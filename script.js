@@ -164,6 +164,13 @@ function game() {
       }, 1000);
    }
 
+   // funtion to delay score update after done flipping
+   function delayUpdateScore() {
+      setTimeout(() => {
+         updateScore();
+      }, 1300);
+   }
+
    // function to display corresponding image to the DOM based on playRound's retun value (result)
    function displayImage(result) {
       // add the score ROCK
@@ -172,21 +179,21 @@ function game() {
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          addPlayerScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          addComScore();
-         updateScore();
+         delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          tie();
-         updateScore();
+         delayUpdateScore();
       }
 
       // add the score PAPPER
