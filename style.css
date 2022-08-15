@@ -6,7 +6,7 @@
 }
 
 .rps-img img:hover {
-   border: 5px solid rgb(0, 192, 240);
+   border: 5px solid rgb(1, 147, 184);
    transition: all 0.2s;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .rps-container {
-   margin-bottom: 25px;
+   margin-top: 25px;
 }
 
 .player-display,
