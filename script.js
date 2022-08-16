@@ -99,6 +99,7 @@ function game() {
       computerScore = 0;
       tempResults.textContent = '';
       finalResults.textContent = '';
+      ul.innerHTML = '';
       updateScore();
    }
 
