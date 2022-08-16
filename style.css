@@ -10,6 +10,24 @@
    transition: all 0.2s;
 }
 
+.rock:hover.greenBorder,
+.papper:hover.greenBorder,
+.scissor:hover.greenBorder {
+   border: 5px solid rgb(0, 216, 11);
+}
+
+.rock:hover.redBorder,
+.papper:hover.redBorder,
+.scissor:hover.redBorder {
+   border: 5px solid rgb(226, 5, 5);
+}
+
+.rock:hover.yellowBorder,
+.papper:hover.yellowBorder,
+.scissor:hover.yellowBorder {
+   border: 5px solid rgb(232, 241, 103);
+}
+
 .rock.blueStay {
    border: 5px solid rgb(43, 75, 218);
 }
@@ -74,6 +92,22 @@
 
 .computer-front.greenBorder {
    border: 5px solid rgb(0, 216, 11);
+}
+
+.player-front.redBorder {
+   border: 5px solid rgb(226, 5, 5);
+}
+
+.computer-front.redBorder {
+   border: 5px solid rgb(226, 5, 5);
+}
+
+.player-front.yellowBorder {
+   border: 5px solid rgb(232, 241, 103);
+}
+
+.computer-front.yellowBorder {
+   border: 5px solid rgb(232, 241, 103);
 }
 
 /* front */

@@ -146,6 +146,122 @@ function game() {
       }, 1500);
    }
 
+   // funtion to add red border to player
+   function addRedBorderPlayer() {
+      playerFront.classList.add('redBorder');
+      setTimeout(() => {
+         playerFront.classList.remove('redBorder');
+      }, 1500);
+   }
+
+   // funtion to add red border to computer
+   function addRedBorderComputer() {
+      computerFront.classList.add('redBorder');
+      setTimeout(() => {
+         computerFront.classList.remove('redBorder');
+      }, 1500);
+   }
+
+   // funtion to add yellow border to computer and player if result tie
+   function addYelloBorderTie() {
+      playerFront.classList.add('yellowBorder');
+      computerFront.classList.add('yellowBorder');
+      setTimeout(() => {
+         playerFront.classList.remove('yellowBorder');
+         computerFront.classList.remove('yellowBorder');
+      }, 1500);
+   }
+
+   // function to add green Border promptly on player's Rock option
+   function addGreenBorderRock() {
+      setTimeout(() => {
+         rock.classList.add('greenBorder');
+      }, 300);
+      setTimeout(() => {
+         rock.classList.remove('greenBorder');
+      }, 1200);
+   }
+
+   // function to add red Border promptly on player's Rock option
+   function addredBorderRock() {
+      setTimeout(() => {
+         rock.classList.add('redBorder');
+      }, 300);
+      setTimeout(() => {
+         rock.classList.remove('redBorder');
+      }, 1200);
+   }
+
+   // function to add yellow Border promptly on player's Rock option
+   function addYellowBorderRock() {
+      setTimeout(() => {
+         rock.classList.add('yellowBorder');
+      }, 300);
+      setTimeout(() => {
+         rock.classList.remove('yellowBorder');
+      }, 1200);
+   }
+
+   // function to add green Border promptly on player's Papper option
+   function addGreenBorderPapper() {
+      setTimeout(() => {
+         papper.classList.add('greenBorder');
+      }, 300);
+      setTimeout(() => {
+         papper.classList.remove('greenBorder');
+      }, 1200);
+   }
+
+   // function to add red Border promptly on player's Papper option
+   function addRedBorderPapper() {
+      setTimeout(() => {
+         papper.classList.add('redBorder');
+      }, 300);
+      setTimeout(() => {
+         papper.classList.remove('redBorder');
+      }, 1200);
+   }
+
+   // function to add Yellow Border promptly on player's Papper option
+   function addYellowBorderPapper() {
+      setTimeout(() => {
+         papper.classList.add('yellowBorder');
+      }, 300);
+      setTimeout(() => {
+         papper.classList.remove('yellowBorder');
+      }, 1200);
+   }
+
+   // function to add green Border promptly on player's Scissor option
+   function addGreenBorderScissor() {
+      setTimeout(() => {
+         scissor.classList.add('greenBorder');
+      }, 300);
+      setTimeout(() => {
+         scissor.classList.remove('greenBorder');
+      }, 1200);
+   }
+
+   // function to add red Border promptly on player's Scissor option
+   function addRedBorderScissor() {
+      setTimeout(() => {
+         scissor.classList.add('redBorder');
+      }, 300);
+      setTimeout(() => {
+         scissor.classList.remove('redBorder');
+      }, 1200);
+   }
+
+   // function to add Yellow Border promptly on player's Scissor option
+   function addYellowBorderScissor() {
+      setTimeout(() => {
+         scissor.classList.add('yellowBorder');
+      }, 300);
+      setTimeout(() => {
+         scissor.classList.remove('yellowBorder');
+      }, 1200);
+   }
+
    // function to make blue border stay for a second and then removes it after
    function bluBorderStay(target) {
       target.classList.add('blueStay');
@@ -189,6 +305,8 @@ function game() {
       // add the score ROCK
       if (result.includes('Win') && result.includes('rock') && result.includes('scissor')) {
          addGreenBorderPlayer();
+         addRedBorderComputer();
+         addGreenBorderRock();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          displayTempResult('ROCK', 'SCISSOR', 'win');
@@ -197,6 +315,8 @@ function game() {
       }
       if (result.includes('Lose') && result.includes('rock') && result.includes('papper')) {
          addGreenBorderCom();
+         addRedBorderPlayer();
+         addredBorderRock();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          displayTempResult('ROCK', 'PAPPER', 'lose');
@@ -204,7 +324,8 @@ function game() {
          delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
-         addGreenBorderTie();
+         addYelloBorderTie();
+         addYellowBorderRock();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          displayTempResult('ROCK', 'ROCK', 'tie');
@@ -215,6 +336,8 @@ function game() {
       // add the score PAPPER
       if (result.includes('Win') && result.includes('papper') && result.includes('rock')) {
          addGreenBorderPlayer();
+         addRedBorderComputer();
+         addGreenBorderPapper();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          displayTempResult('PAPPER', 'ROCK', 'win');
@@ -223,6 +346,8 @@ function game() {
       }
       if (result.includes('Lose') && result.includes('papper') && result.includes('scissor')) {
          addGreenBorderCom();
+         addRedBorderPlayer();
+         addRedBorderPapper();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          displayTempResult('PAPPER', 'SCISSOR', 'lose');
@@ -230,7 +355,8 @@ function game() {
          delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
-         addGreenBorderTie();
+         addYelloBorderTie();
+         addYellowBorderPapper();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          displayTempResult('PAPPER', 'PAPPER', 'tie');
@@ -241,6 +367,8 @@ function game() {
       // add the score SCISSOR
       if (result.includes('Win') && result.includes('scissor') && result.includes('papper')) {
          addGreenBorderPlayer();
+         addRedBorderComputer();
+         addGreenBorderScissor();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
          displayTempResult('SCISSOR', 'PAPPER', 'win');
@@ -249,6 +377,8 @@ function game() {
       }
       if (result.includes('Lose') && result.includes('scissor') && result.includes('rock')) {
          addGreenBorderCom();
+         addRedBorderPlayer();
+         addRedBorderScissor();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
          displayTempResult('SCISSOR', 'ROCK', 'lose');
@@ -256,7 +386,8 @@ function game() {
          delayUpdateScore();
       }
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
-         addGreenBorderTie();
+         addYelloBorderTie();
+         addYellowBorderScissor();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
          displayTempResult('SCISSOR', 'SCISSOR', 'tie');
