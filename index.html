@@ -14,6 +14,16 @@
       <h2>Reach 5 score to win</h2>
 
       <div class="container">
+         <div class="scoreContainer">
+            <div class="playerInfo">
+               <h1>YOU</h1>
+               <h2 class="player"></h2>
+            </div>
+            <div class="computerInfo">
+               <h1>Computer</h1>
+               <h2 class="com"></h2>
+            </div>
+         </div>
          <div class="resultContainer">
             <div class="player-card">
                <div class="player-flip">
@@ -34,13 +44,16 @@
             <div id="scissor-img" class="rps-img"><img class="scissor" src="/img/scissor.svg" alt="scissor" /></div>
          </div>
       </div>
+      <div class="tempResultContainer">
+         <div>
+            <ol class="theTempResult"></ol>
+         </div>
+      </div>
 
       <button class="reset">Play Again</button>
+
       <div class="tempResults"></div>
-      <h1>Player score</h1>
-      <h2 class="player"></h2>
-      <h1>Computer score</h1>
-      <h2 class="com"></h2>
+
       <div class="finalResults"></div>
    </body>
 </html>

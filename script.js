@@ -20,6 +20,9 @@ const computerFlip = document.querySelector('.computer-flip');
 const computerFront = document.querySelector('.computer-front');
 const computerBack = document.querySelector('.computer-back');
 
+const resultDiv = document.querySelector('.tempResultContainer div');
+const ul = document.querySelector('.theTempResult');
+
 // This function randomly determines computer's choice, the function returns one value (string) either the word rock, papper or scissor
 function computerPlay() {
    const comSelection = Math.floor(Math.random() * 3); // <- create random number beetwen 0 - 2 (so it's 3 choices)
@@ -171,6 +174,15 @@ function game() {
       }, 1300);
    }
 
+   // function to display temp result to the DOM
+   function displayTempResult(player, com, result) {
+      const li = document.createElement('li');
+      if (result === 'win') li.textContent = `You win, ${player} beats ${com}`;
+      if (result === 'lose') li.textContent = `You lose, ${com} beats ${player}`;
+      if (result === 'tie') li.textContent = 'Tie';
+      ul.appendChild(li);
+   }
+
    // function to display corresponding image to the DOM based on playRound's retun value (result)
    function displayImage(result) {
       // add the score ROCK
@@ -178,6 +190,7 @@ function game() {
          addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
+         displayTempResult('ROCK', 'SCISSOR', 'win');
          addPlayerScore();
          delayUpdateScore();
       }
@@ -185,6 +198,7 @@ function game() {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
+         displayTempResult('ROCK', 'PAPPER', 'lose');
          addComScore();
          delayUpdateScore();
       }
@@ -192,6 +206,7 @@ function game() {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/rock.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
+         displayTempResult('ROCK', 'ROCK', 'tie');
          tie();
          delayUpdateScore();
       }
@@ -201,6 +216,7 @@ function game() {
          addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
+         displayTempResult('PAPPER', 'ROCK', 'win');
          addPlayerScore();
          delayUpdateScore();
       }
@@ -208,6 +224,7 @@ function game() {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
+         displayTempResult('PAPPER', 'SCISSOR', 'lose');
          addComScore();
          delayUpdateScore();
       }
@@ -215,6 +232,7 @@ function game() {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/papper.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
+         displayTempResult('PAPPER', 'PAPPER', 'tie');
          tie();
          delayUpdateScore();
       }
@@ -224,6 +242,7 @@ function game() {
          addGreenBorderPlayer();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/papper.svg');
+         displayTempResult('SCISSOR', 'PAPPER', 'win');
          addPlayerScore();
          delayUpdateScore();
       }
@@ -231,6 +250,7 @@ function game() {
          addGreenBorderCom();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/rock.svg');
+         displayTempResult('SCISSOR', 'ROCK', 'lose');
          addComScore();
          delayUpdateScore();
       }
@@ -238,6 +258,7 @@ function game() {
          addGreenBorderTie();
          playerFront.setAttribute('src', '/img/scissor.svg');
          computerFront.setAttribute('src', '/img/scissor.svg');
+         displayTempResult('SCISSOR', 'SCISSOR', 'tie');
          tie();
          delayUpdateScore();
       }

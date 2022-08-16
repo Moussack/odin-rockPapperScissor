@@ -37,6 +37,15 @@
    width: 250px;
 }
 
+.tempResultContainer {
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+
+.scoreContainer {
+   display: flex;
+}
+
 /* ________image flipping__________ */
 .resultContainer {
    /* width: 360px; */
