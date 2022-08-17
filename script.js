@@ -97,7 +97,7 @@ function game() {
       computerFront.setAttribute('src', '/img/rps.svg');
       playerScore = 0;
       computerScore = 0;
-      finalResults.textContent = '';
+      finalResults.innerHTML = '';
       ul.innerHTML = '';
       updateScore();
    }
@@ -220,9 +220,12 @@ function game() {
    }
 
    // funtion to delay final result
-   function delayFinalResult(text) {
+   function delayFinalResult(text, result) {
       setTimeout(() => {
-         finalResults.textContent = text;
+         let html;
+         if (result === 'win') html = `<p class="finalText win">${text}</p>`;
+         if (result === 'lose') html = `<p class="finalText lose">${text}</p>`;
+         finalResults.insertAdjacentHTML('beforeend', html);
       }, 1300);
    }
 
@@ -369,11 +372,11 @@ function game() {
             }, 1500);
 
             // whoever reaches 5 scores first, they win the game.
-            if (playerScore >= 2) {
-               delayFinalResult("Congratulation You've WON the game!!");
+            if (playerScore >= 5) {
+               delayFinalResult("Congratulations, You've WON the game!!", 'win');
             }
-            if (computerScore >= 2) {
-               delayFinalResult("Computer WON, You've Lost the game!!");
+            if (computerScore >= 5) {
+               delayFinalResult("Computer WON, You've Lost the game!!", 'lose');
             }
          }
       })

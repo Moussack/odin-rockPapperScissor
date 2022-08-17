@@ -188,3 +188,11 @@ h3 {
    flex-direction: column;
    gap: 15px;
 }
+
+.finalText.lose {
+   color: red;
+}
+
+.finalText.win {
+   color: green;
+}
