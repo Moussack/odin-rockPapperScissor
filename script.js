@@ -349,11 +349,11 @@ function game() {
             }
 
             // showing temporary result of the player choices to the DOM when player click the button
-            tempResults.textContent = result;
+            //tempResults.textContent = result;
 
             // display corresponding image to the DOM based on playRound's retun value (result)
             active = false;
-            disableButton();
+            //disableButton();
             flippedTheImages();
             displayImage(result);
             flippedTheImagesBack();
@@ -365,11 +365,11 @@ function game() {
             // whoever reaches 5 scores first, they win the game.
             if (playerScore >= 5) {
                finalResults.textContent = "Congratulation You've won the game";
-               enableButton();
+               //enableButton();
             }
             if (computerScore >= 5) {
                finalResults.textContent = 'Computer WON, You Lose the game';
-               enableButton();
+               //enableButton();
             }
          }
       })

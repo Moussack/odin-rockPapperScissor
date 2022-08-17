@@ -1,5 +1,21 @@
+body {
+   margin: 0;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   padding: 30px;
+}
+
+h1,
+h2,
+h3 {
+   margin: 0;
+}
+
 .rps-img img {
-   width: 150px;
+   width: 135px;
    display: block;
    border: 5px solid black;
    border-radius: 5%;
@@ -43,11 +59,13 @@
 .rps-container,
 .img-result {
    display: flex;
-   gap: 20px;
+   justify-content: center;
+   gap: 50px;
 }
 
 .rps-container {
-   margin-top: 25px;
+   margin-top: 40px;
+   margin-bottom: 50px;
 }
 
 .player-display,
@@ -69,7 +87,9 @@
    /* width: 360px; */
    /* padding: 15px; */
    display: flex;
-   gap: 20px;
+   gap: 70px;
+   justify-content: center;
+   align-items: center;
    /* border: 5px solid green; */
 }
 
@@ -135,4 +155,27 @@
 .flipped .computer-back {
    transform: rotateY(90deg);
    transition-delay: 0s;
+}
+
+.player-card,
+.computer-card {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+}
+
+.reset {
+   border-radius: 10px;
+   width: 70px;
+   background-color: #fff;
+   font-size: 15px;
+   padding: 5px;
+   text-align: center;
+   border: 2px solid rgb(0, 0, 0);
+}
+
+.reset:hover {
+   border: 2px solid rgb(1, 147, 184);
+   transition: all 0.2s;
 }

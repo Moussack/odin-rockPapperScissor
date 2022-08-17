@@ -9,30 +9,24 @@
       <title>Rock Papper Scissor</title>
    </head>
    <body>
-      <h1>Reach 5 score to win</h1>
       <div class="container">
-         <div class="scoreContainer">
-            <div class="playerInfo">
-               <h1>YOU</h1>
-               <h2 class="player"></h2>
-            </div>
-            <div class="computerInfo">
-               <h1>Computer</h1>
-               <h2 class="com"></h2>
-            </div>
-         </div>
          <div class="resultContainer">
             <div class="player-card">
+               <h1>You</h1>
                <div class="player-flip">
                   <img class="player-front" src="/img/rps.svg" alt="frontCard" />
                   <img class="player-back" src="/img/rps.svg" alt="backCard" />
                </div>
+               <h2 class="player"></h2>
             </div>
+            <button class="reset">Reset</button>
             <div class="computer-card">
+               <h1>Ai</h1>
                <div class="computer-flip">
                   <img class="computer-front" src="/img/rock.svg" alt="frontCard" />
                   <img class="computer-back" src="/img/rps.svg" alt="backCard" />
                </div>
+               <h2 class="com"></h2>
             </div>
          </div>
          <div class="rps-container">
@@ -46,8 +40,6 @@
             <ol class="theTempResult"></ol>
          </div>
       </div>
-
-      <button class="reset">Play Again</button>
 
       <div class="tempResults"></div>
 
