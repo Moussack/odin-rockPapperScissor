@@ -373,10 +373,10 @@ function game() {
 
             // whoever reaches 5 scores first, they win the game.
             if (playerScore >= 5) {
-               delayFinalResult("Congratulations, You've WON the game!!", 'win');
+               delayFinalResult("Congratulations, You've beaten the Ai!", 'win');
             }
             if (computerScore >= 5) {
-               delayFinalResult("Computer WON, You've Lost the game!!", 'lose');
+               delayFinalResult('Ai WON, What a loser!, LOL', 'lose');
             }
          }
       })
