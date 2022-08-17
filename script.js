@@ -97,7 +97,6 @@ function game() {
       computerFront.setAttribute('src', '/img/rps.svg');
       playerScore = 0;
       computerScore = 0;
-      tempResults.textContent = '';
       finalResults.textContent = '';
       ul.innerHTML = '';
       updateScore();
@@ -218,6 +217,13 @@ function game() {
       setTimeout(() => {
          element.classList.remove(`${borderColor}Border`);
       }, 1200);
+   }
+
+   // funtion to delay final result
+   function delayFinalResult(text) {
+      setTimeout(() => {
+         finalResults.textContent = text;
+      }, 1300);
    }
 
    // function to display corresponding image to the DOM based on playRound's retun value (result)
@@ -363,13 +369,11 @@ function game() {
             }, 1500);
 
             // whoever reaches 5 scores first, they win the game.
-            if (playerScore >= 5) {
-               finalResults.textContent = "Congratulation You've won the game";
-               //enableButton();
+            if (playerScore >= 2) {
+               delayFinalResult("Congratulation You've WON the game!!");
             }
-            if (computerScore >= 5) {
-               finalResults.textContent = 'Computer WON, You Lose the game';
-               //enableButton();
+            if (computerScore >= 2) {
+               delayFinalResult("Computer WON, You've Lost the game!!");
             }
          }
       })
