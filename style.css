@@ -11,6 +11,18 @@ body {
    background-color: var(--white);
 }
 
+footer,
+p,
+h1 {
+   margin: 0;
+}
+
+.info {
+   text-align: center;
+   margin: 10px;
+   color: var(--blue);
+}
+
 .you {
    color: var(--green);
 }
