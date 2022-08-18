@@ -100,6 +100,7 @@ function game() {
       finalResults.innerHTML = '';
       ul.innerHTML = '';
       updateScore();
+      active = true;
    }
 
    // function to display score to the DOM
@@ -374,9 +375,15 @@ function game() {
             // whoever reaches 5 scores first, they win the game.
             if (playerScore >= 5) {
                delayFinalResult("Congratulations, You've beaten the Ai!", 'win');
+               setTimeout(() => {
+                  active = false;
+               }, 1550);
             }
             if (computerScore >= 5) {
                delayFinalResult('Ai WON, What a loser!, LOL', 'lose');
+               setTimeout(() => {
+                  active = false;
+               }, 1550);
             }
          }
       })
