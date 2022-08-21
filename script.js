@@ -93,8 +93,8 @@ function game() {
 
    // function to reset the game
    function reset() {
-      playerFront.setAttribute('src', '/img/rps.svg');
-      computerFront.setAttribute('src', '/img/rps.svg');
+      playerFront.setAttribute('src', 'https://moussack.github.iohttps://moussack.github.io/img/rps.svg');
+      computerFront.setAttribute('src', 'https://moussack.github.iohttps://moussack.github.io/img/rps.svg');
       playerScore = 0;
       computerScore = 0;
       finalResults.innerHTML = '';
@@ -237,8 +237,8 @@ function game() {
          addGreenBorderPlayer();
          addRedBorderComputer();
          addRgbBorder(rock, 'green');
-         playerFront.setAttribute('src', '/img/rock.svg');
-         computerFront.setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
          displayTempResult('ROCK', 'SCISSOR', 'win');
          addPlayerScore();
          delayUpdateScore();
@@ -247,8 +247,8 @@ function game() {
          addGreenBorderCom();
          addRedBorderPlayer();
          addRgbBorder(rock, 'red');
-         playerFront.setAttribute('src', '/img/rock.svg');
-         computerFront.setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
          displayTempResult('ROCK', 'PAPPER', 'lose');
          addComScore();
          delayUpdateScore();
@@ -256,8 +256,8 @@ function game() {
       if (result.includes('Tie') && result.includes('rock') && result.includes('rock')) {
          addYelloBorderTie();
          addRgbBorder(rock, 'yellow');
-         playerFront.setAttribute('src', '/img/rock.svg');
-         computerFront.setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
          displayTempResult('ROCK', 'ROCK', 'tie');
          tie();
          delayUpdateScore();
@@ -268,8 +268,8 @@ function game() {
          addGreenBorderPlayer();
          addRedBorderComputer();
          addRgbBorder(papper, 'green');
-         playerFront.setAttribute('src', '/img/papper.svg');
-         computerFront.setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
          displayTempResult('PAPPER', 'ROCK', 'win');
          addPlayerScore();
          delayUpdateScore();
@@ -278,8 +278,8 @@ function game() {
          addGreenBorderCom();
          addRedBorderPlayer();
          addRgbBorder(papper, 'red');
-         playerFront.setAttribute('src', '/img/papper.svg');
-         computerFront.setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
          displayTempResult('PAPPER', 'SCISSOR', 'lose');
          addComScore();
          delayUpdateScore();
@@ -287,8 +287,8 @@ function game() {
       if (result.includes('Tie') && result.includes('papper') && result.includes('papper')) {
          addYelloBorderTie();
          addRgbBorder(papper, 'yellow');
-         playerFront.setAttribute('src', '/img/papper.svg');
-         computerFront.setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
          displayTempResult('PAPPER', 'PAPPER', 'tie');
          tie();
          delayUpdateScore();
@@ -299,8 +299,8 @@ function game() {
          addGreenBorderPlayer();
          addRedBorderComputer();
          addRgbBorder(scissor, 'green');
-         playerFront.setAttribute('src', '/img/scissor.svg');
-         computerFront.setAttribute('src', '/img/papper.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/papper.svg');
          displayTempResult('SCISSOR', 'PAPPER', 'win');
          addPlayerScore();
          delayUpdateScore();
@@ -309,8 +309,8 @@ function game() {
          addGreenBorderCom();
          addRedBorderPlayer();
          addRgbBorder(scissor, 'red');
-         playerFront.setAttribute('src', '/img/scissor.svg');
-         computerFront.setAttribute('src', '/img/rock.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/rock.svg');
          displayTempResult('SCISSOR', 'ROCK', 'lose');
          addComScore();
          delayUpdateScore();
@@ -318,8 +318,8 @@ function game() {
       if (result.includes('Tie') && result.includes('scissor') && result.includes('scissor')) {
          addYelloBorderTie();
          addRgbBorder(scissor, 'yellow');
-         playerFront.setAttribute('src', '/img/scissor.svg');
-         computerFront.setAttribute('src', '/img/scissor.svg');
+         playerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
+         computerFront.setAttribute('src', 'https://moussack.github.io/img/scissor.svg');
          displayTempResult('SCISSOR', 'SCISSOR', 'tie');
          tie();
          delayUpdateScore();
